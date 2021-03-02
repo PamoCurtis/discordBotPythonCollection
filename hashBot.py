@@ -39,10 +39,10 @@ async def hash(ctx, hash = 'md5'):
         #hashes the binary data of the given file
         hash_msg = new(name = hash, data = file_req.content)
     except:
-        await ctx.send("seems like the hash algorithm you're trying to use isn't supported")
+        await ctx.send(f'{hash} isn\'t supported')
 
-    em = discord.Embed(title= filename)
-    em.add_field(name=f'{hash_msg.name} hash:', value= hash_msg.hexdigest())
+    em = discord.Embed(title = filename)
+    em.add_field(name = f'{hash_msg.name} hash:', value = hash_msg.hexdigest())
     
     await ctx.send(embed = em)
 
