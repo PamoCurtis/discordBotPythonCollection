@@ -10,7 +10,7 @@ from discord.ext import commands
 
 
 
-load_dotenv("../BOT_TOKEN.env")
+load_dotenv("BOT_TOKENS.env")
 
 bot = commands.Bot(command_prefix='.')
 
@@ -22,7 +22,7 @@ async def on_ready():
 
 #hashes the binary data of uploaded files by using the python hashlib library
 #TODO   shake_128 and shake_256 need some parameters
-@bot.command(aliases=['h'],description="(.hash | .h) (md5|sha1|sha224|sha256|sha384|sha512|sha3_224|sha3_256|sha3_384|sha3_512|shake_128|shake_256|blake2b|blake2s) (file|url)\ndefault is MD5")
+@bot.command(aliases=['h'],description="(.hash | .h) md5|sha1|sha224|sha256|sha384|sha512|sha3_224|sha3_256|sha3_384|sha3_512|shake_128|shake_256|blake2b|blake2s) (file|url)\ndefault is MD5")
 async def hash(ctx, hash = 'md5'):
 
     #checks if file was uploaded
@@ -47,4 +47,4 @@ async def hash(ctx, hash = 'md5'):
     await ctx.send(embed = em)
 
 
-bot.run(os.getenv('BOT1_TOKEN'))
+bot.run(os.getenv('YOUR_BOT_TOKEN'))
