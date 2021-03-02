@@ -20,9 +20,21 @@ async def on_ready():
     print("Bot is ready to hash some files.")
 
 
+description = f"""
+Upload a file to discord and add following as a comment:
+
+Syntax: (.h | .hash) [algorithm]
+
+Supported hash algorithms:
+MD4, MD5, SHA1, SHA224, SHA256, SHA384, SHA512
+SHA3_224, SHA3_256, SHA3_384, SHA3_512,
+SHAKE_128, SHAKE_256, BLAKE2B, BLAKE2S
+
+default algorithm: MD5
+"""
 #hashes the binary data of uploaded files by using the python hashlib library
 #TODO   shake_128 and shake_256 need some parameters
-@bot.command(aliases=['h'],description="(.hash | .h) md5|sha1|sha224|sha256|sha384|sha512|sha3_224|sha3_256|sha3_384|sha3_512|shake_128|shake_256|blake2b|blake2s) (file|url)\ndefault is MD5")
+@bot.command(aliases=['h'],description=description)
 async def hash(ctx, hash = 'md5'):
 
     #checks if file was uploaded
